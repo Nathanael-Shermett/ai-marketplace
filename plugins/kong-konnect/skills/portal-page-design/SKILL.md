@@ -36,14 +36,9 @@ Ask two or three high-impact questions, each with a default to confirm:
 Prefer the Konnect MCP server: the authoritative, always-current source for MDC
 facts (syntax rules, available components, their props and slots, design tokens,
 usage examples, formatting, validation, page preview). When connected, take facts
-from it rather than memory, in this order:
-
-1. Read the server's MDC syntax guide once at the start of the session.
-2. Discover the available components, then read each one's props, slots, and
-   examples before use.
-3. Pull color, spacing, and type values from the server's design tokens.
-4. Format, then validate, the MDC through the server.
-5. Generate a page preview and screenshot it (see Preview and iterate).
+from it rather than memory, and read its MDC syntax guide once at the start of the
+session; the Workflow below then draws components, tokens, validation, and preview
+from the server in order.
 
 If not connected, recommend connecting it, since verified components, tokens,
 validation, and preview make the result much better. Otherwise work from general
@@ -126,15 +121,16 @@ general-knowledge starting point, not verified truth.
 ## Workflow
 
 1. Name the page type and its ordered sections before writing MDC.
-2. Map each section to the component whose job it names, then confirm that
-   component's props and slots before writing it. Keep the component set small;
-   repetition reads as consistency.
+2. Map each section to the right component from the server's available components;
+   confirm its props, slots, and examples against the metadata before writing it.
+   Keep the component set small; repetition reads as consistency.
 3. Compose by nesting section, container, and column components around content,
    not one monolithic block.
-4. Style with design tokens; use the responsive column component and breakpoint
-   props for parallel items.
-5. Format and validate the MDC.
-6. Preview and screenshot across widths, then iterate.
+4. Style with the server's design tokens for color, spacing, and type; use the
+   responsive column component and breakpoint props for parallel items.
+5. Format, then validate, the MDC through the server.
+6. Generate a preview and screenshot across widths, then iterate (see Preview and
+   iterate).
 
 ## MDC Gotchas
 
@@ -152,17 +148,14 @@ general-knowledge starting point, not verified truth.
 
 ## Validation Checklist
 
-- the page type and its ordered sections are named
-- every component and prop was confirmed against metadata, or flagged as
-  unverified when the server was unavailable
+- page type and ordered sections named
+- components and props confirmed against metadata, or flagged unverified
 - layout uses design tokens and the responsive column component
-- dedicated props were used instead of a catch-all styles prop where possible
-- any hero has a title; adjacent elements are at least 12px apart; text and buttons
-  meet WCAG AA contrast
+- dedicated props over a catch-all styles prop
+- hero has a title; 12px minimum spacing; WCAG AA contrast
 - repeated blocks are snippets, not copied markup
-- every image has alt text and heading levels are sequential
-- the MDC validated and previewed cleanly (after hydration) on mobile, tablet, and
-  desktop, or the user previewed it in the Portal Editor
+- images have alt text; heading levels sequential
+- MDC validated and previewed on mobile, tablet, desktop (or in the Portal Editor)
 
 ## Handoffs
 

@@ -143,14 +143,13 @@ rather than chasing pixels.
 
 ## Validation Checklist
 
-- source and target pages
-- which colors, fonts, imagery, and spacing you applied, and how
-- logo, favicon, and API images use the server's upload operations; inline content
-  images are hotlinked or embedded SVGs
-- text and buttons meet WCAG AA contrast against every background
-- how parity was confirmed, including a preview screenshot comparison
+- source and target pages named
+- colors, fonts, imagery, and spacing applied
+- images use the right upload path or hotlink/SVG
+- WCAG AA contrast on every background
+- parity confirmed via screenshot comparison
 - work stayed in MDC page files
-- which elements could not be matched, and the alternatives offered
+- unmatched elements and their alternatives noted
 
 ## Handoffs
 

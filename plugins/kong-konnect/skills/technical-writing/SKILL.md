@@ -71,9 +71,8 @@ developer style guides, which agree on the core.
 
 Voice and grammar:
 
-- Second person, active voice, present tense. "The plugin applies rate limiting"
-  not "Rate limiting is applied by the plugin"; "this command starts a proxy" not
-  "will start." Passive voice hides who acts; name the actor.
+- Second person, active voice, present tense. Passive voice hides who acts; name
+  the actor.
 - Plain verbs: "run" not "execute," "use" not "utilize," "to" not "in order to."
 - Contractions are fine in prose; drop them in warnings for a serious tone.
 - Name what a bare "this" points to. No Latin abbreviations (use "for example,"
@@ -82,9 +81,8 @@ Voice and grammar:
 
 Headings, lists, tables:
 
-- Headings: descriptive, not generic (a heading like "Overview" wastes the most
-  scannable line on the page); sentence case; task headings can use a bare verb
-  ("Create a portal").
+- Headings: descriptive, not generic; sentence case; task headings can use a bare
+  verb.
 - Numbered lists for sequences, bulleted otherwise; parallel structure; end
   punctuation only for full sentences.
 - Tables for parameter references, status codes, and comparisons.
@@ -171,18 +169,8 @@ API or product page, a dependable order:
   up front, give copy-paste steps, and end with a step that proves it worked.
 - Authentication: early and self-contained. Show how to obtain and send credentials
   with placeholders. Never show a real secret.
-- Request and response samples: one command per block, request and response in
-  separate language-tagged blocks, no prompt markers, long commands wrapped.
-
-```bash
-curl https://api.example.com/v1/orders \
-  -H "Authorization: Bearer API_KEY"
-```
-
-```json
-{ "id": "order_123", "status": "created" }
-```
-
+- Request and response samples: put request and response in separate,
+  language-tagged blocks (formatting under Code samples).
 - Troubleshooting or FAQ: headings phrased as the reader's actual question, with
   the cause and the fix in that order.
 
@@ -194,12 +182,12 @@ Keep each section self-contained and no longer than it needs to be.
 
 ## Validation Checklist
 
-- who the reader is and the task the page serves
-- the page leads with the task and stays on one page per use case
-- prose is second person, active voice, present tense, and scannable
-- samples use placeholders and a how-to ends in a verification step
-- the text has no em-dashes, banned filler, or template openers
-- real values came from MCP or the user, not invention
+- reader and task identified
+- leads with the task; one use case per page
+- second person, active voice, present tense, scannable
+- placeholders in samples; how-to ends with verification
+- no em-dashes, banned filler, or template openers
+- real values from MCP or the user, not invention
 
 ## Handoffs
 
