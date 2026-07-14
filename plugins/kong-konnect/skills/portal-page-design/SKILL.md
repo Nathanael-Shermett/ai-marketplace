@@ -34,26 +34,24 @@ Batch two or three high-impact questions with a sensible default to confirm:
 
 ## Tool Selection
 
-Prefer the Konnect MCP server. It is the authoritative, always-current source
-for MDC facts: the syntax rules, the available components, their props and slots,
-design tokens, usage examples, formatting, validation, and page preview. When it
-is connected, take facts from the server rather than memory, in this order:
+Prefer the Konnect MCP server. It is the authoritative, always-current source for
+MDC facts: syntax rules, available components, their props and slots, design
+tokens, usage examples, formatting, validation, and page preview. When it is
+connected, take facts from the server rather than memory, in this order:
 
 1. Read the server's MDC syntax guide once at the start of the session.
 2. Discover the available components, then read each component's props, slots,
-   and examples before you use it. Write all prop names in kebab-case, even if
-   the metadata shows them in camelCase.
+   and examples before you use it.
 3. Pull color, spacing, and type values from the server's design tokens.
 4. Format, then validate, the MDC through the server.
 5. Generate a page preview through the server and screenshot it (see Preview and
    iterate).
 
-If the server is not connected, recommend the user install and connect it, since
-verified components, tokens, validation, and preview make the result much
-better. If they cannot or prefer not to, continue with general MDC knowledge and
-the user's existing portal files, load `references/mdc-essentials.md`, and say
-plainly that you cannot verify components, props, or tokens against live metadata
-and that the result will be less reliable.
+If the server is not connected, recommend installing and connecting it, since
+verified components, tokens, validation, and preview make the result much better.
+Otherwise continue with general MDC knowledge and the user's existing portal
+files (see MDC essentials), and say plainly that you cannot verify components,
+props, or tokens against live metadata and the result will be less reliable.
 
 Pages and snippets can be read and written directly through the server. Read
 current state before an update, which overwrites content. Do not write to a live
@@ -63,23 +61,23 @@ and preserve an existing `kongctl` or Terraform toolchain when one is in use.
 ## Preview and iterate
 
 Previewing needs the target portal's origin, a valid token, and a browser tool.
-Without them, ask the user to preview in the Portal Editor instead. Set the
-viewport before opening the single-use preview URL, wait for full hydration
-(network idle, no pending animations), then screenshot. Regenerate the URL only
-when the MDC changes, not for each width.
+Without them, ask the user to preview in the Portal Editor. Set the viewport
+before opening the single-use preview URL, wait for full hydration (network idle,
+no pending animations), then screenshot. Regenerate the URL only when the MDC
+changes, not for each width.
 
 - Build from a source design: screenshot the source, build the page, preview,
   screenshot at the source width, and compare layout, color, type, and spacing.
-- Edit an existing page: screenshot the live page as a "before," make the
-  change, preview, screenshot the "after" at the same width, and compare.
+- Edit an existing page: screenshot the live page as a "before," make the change,
+  preview, screenshot the "after" at the same width, and compare.
 - Improve responsive behavior: screenshot at several widths (mobile, tablet,
   desktop), fix overflow and breakpoint issues, then re-check each width.
 
 ## Design Requirements
 
 - Prefer a component's dedicated visual props (for background, padding, margin,
-  radius, and type size) over a catch-all styles prop. Use a styles prop only
-  for what dedicated props cannot express, such as a gradient background.
+  radius, and type size) over a catch-all styles prop. Use a styles prop only for
+  what dedicated props cannot express, such as a gradient background.
 - Always give a hero a title and a description, plus actions when it needs
   buttons. Never ship a hero without a title.
 - Lay parallel items out in the responsive column component so they wrap cleanly
@@ -87,14 +85,45 @@ when the MDC changes, not for each width.
 - Keep adjacent buttons, cards, and similar elements at least 12px apart.
 - Meet WCAG AA contrast for all text on its background and for buttons.
 
-## References To Load
+## Layout patterns
 
-- `references/layout-patterns.md`
-  - Composition judgment (what shape a section wants). Get the exact syntax for
-    each shape from the server's component examples.
-- `references/mdc-essentials.md`
-  - Load only when the Konnect MCP server is not available and you must rely on
-    general MDC knowledge.
+Composition judgment only. Get the exact, current syntax, props, and slots from
+the server's component examples and metadata; treat these component names as a
+starting point, not a fixed list.
+
+- Hero: a title, a short value line, one or two actions. Confirm its slots first
+  (a hero typically has named slots for tagline, title, description, actions, and
+  image rather than a default slot).
+- Feature columns: use the responsive column container for parallel items (cards,
+  entry points). Set per-breakpoint column counts.
+- Feature row: alternate text and media by pairing containers with a gap.
+- Doc page: sections in reading order on one page: hero, getting started, auth,
+  request/response, troubleshooting. Prose comes from `technical-writing`.
+
+Reuse the same hero and card patterns across pages, group related actions into
+buttons, extract repeated blocks into snippets, and confirm the result on mobile.
+
+## MDC essentials
+
+Fallback for when the server is not available; anything here is a
+general-knowledge starting point, not verified truth.
+
+- Write a component as `::component-name` on its own line, content or slots below,
+  and close with `::`.
+- Put props in a YAML block between `---` fences, with kebab-case names
+  (`background-color`, `show-icon`, `columns-breakpoints`). Quote string values.
+- Name slots with `#slot-name`, with a blank line between one slot's content and
+  the next slot marker. The main content is the default slot.
+- Nest a child component by indenting it one level under its parent.
+- Reuse common components by role: a hero for the masthead, sections and
+  containers for structure, a responsive column component for parallel items, and
+  cards, buttons, alerts, and images for content. Keep to common ones and tell
+  the user they are unverified.
+- Prefer `--kui-*` design tokens for color, spacing, and type; the primary token
+  family reflects the portal's configured brand color.
+- Apply the Design Requirements above. Without the server you cannot generate a
+  preview URL, so ask the user to preview in the Portal Editor, and check the
+  structure by eye against these rules first.
 
 ## Workflow
 
