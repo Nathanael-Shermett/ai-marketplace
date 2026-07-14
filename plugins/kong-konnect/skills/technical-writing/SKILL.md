@@ -22,49 +22,47 @@ Write and edit developer-facing documentation that is easy to consume: plain,
 task-oriented, active-voice prose with scannable structure and clean punctuation.
 Own the words and their organization within a page.
 
-This skill is not Dev Portal specific, but it pairs with the portal skills:
-`portal-page-design` for the components that hold the prose and `portal-branding`
-for appearance. Work in page content files, edit them locally or in a dedicated
-repository, and do not push destructive changes to a live portal unless the user
-explicitly asks.
+Not Dev Portal specific, but it pairs with the portal skills: `portal-page-design`
+for the components that hold the prose, `portal-branding` for appearance. Work in
+page content files, locally or in a repo, and do not push destructive changes to a
+live portal unless the user explicitly asks.
 
 ## Clarify First
 
-Batch two or three high-impact questions with a sensible default to confirm:
+Ask two or three high-impact questions, each with a default to confirm:
 
 - the reader and the task the page serves
 - the source of truth for the technical details
 - an existing page to match in tone and structure, if any
-- the depth expected, from a quickstart to a full reference
+- the depth expected, from quickstart to full reference
 
 ## Tool Selection
 
-- When the content documents Konnect resources, pull real details (control
-  planes, services, routes, specs) from real entities through the `kong-konnect`
-  MCP server instead of inventing values. If the server is not connected,
-  recommend installing it; otherwise ask the user for the real values or mark
-  them clearly as placeholders rather than guessing.
-- When the content is a portal page, hand structure and components to
-  `portal-page-design` and keep this skill on the prose.
+- Documenting Konnect resources: pull real details (control planes, services,
+  routes, specs) from real entities through the `kong-konnect` MCP server instead
+  of inventing values. If it is not connected, recommend installing it; otherwise
+  ask the user for real values or mark them clearly as placeholders, not guesses.
+- Portal-page content: hand structure and components to `portal-page-design` and
+  keep this skill on the prose.
 - Follow Kong's documentation style guide for terminology and capitalization on
-  Kong content, and default to the Google and Microsoft developer style guides
+  Kong content; default to the Google and Microsoft developer style guides
   otherwise.
-- When unsure of Kong terminology or how Kong documents a concept, check the
-  server's Kong documentation knowledge base. If the server is unavailable, rely
-  on the style guides and flag anything you cannot confirm.
+- Unsure of Kong terminology or how Kong documents a concept: check the server's
+  Kong documentation knowledge base. If unavailable, rely on the style guides and
+  flag anything you cannot confirm.
 
 ## Workflow
 
-1. Name the reader and the task, and lead with what the reader does.
+1. Name the reader and the task; lead with what the reader does.
 2. Choose the structure from that task and keep one use case on one page.
 3. Write in the house voice: second person, active voice, present tense, plain,
-   front-loaded, and scannable. Recommend choices with a reason.
+   front-loaded, scannable. Recommend choices with a reason.
 4. Make it self-contained: real values from MCP or the user, placeholders for
-   reader-supplied values, one command per block, and a verification step to
-   close a how-to.
+   reader-supplied values, one command per block, a verification step to close a
+   how-to.
 5. Edit out the tells as a final pass.
 6. Match the density: cut a sentence that repeats the previous one; add one the
-   reader would otherwise have to guess.
+   reader would otherwise guess.
 
 ## Style rules
 
@@ -111,8 +109,8 @@ Kong terminology:
 
 Page tenets:
 
-- Every page is page one: a reader answers their question on one page; do not
-  split a concept from its configuration.
+- Every page is page one: a reader answers their question on one page; do not split
+  a concept from its configuration.
 - A how-to has validation: the final step confirms the product works.
 
 ## Avoid LLM tells
@@ -121,20 +119,20 @@ These patterns make prose read as machine-generated. Remove them in a final
 editing pass, in this order (em-dashes and en-dashes are the clearest tell, so
 start there):
 
-1. Delete every em-dash and en-dash, rewriting the sentence around it. The hard
-   cap is zero, headings included. Replace with a comma, colon, parentheses, or
-   two sentences, and do not use `--` as a substitute.
+1. Delete every em-dash and en-dash, rewriting the sentence around it. The hard cap
+   is zero, headings included. Replace with a comma, colon, parentheses, or two
+   sentences, and do not use `--` as a substitute.
 2. Replace always-replace words: delve to explore; leverage (verb) to use; robust
-   to reliable; seamless to smooth; utilize to use; landscape (metaphor) to
-   field. For tapestry, synergy, game-changer, cutting-edge, and embrace
-   (metaphor), say the concrete thing.
+   to reliable; seamless to smooth; utilize to use; landscape (metaphor) to field.
+   For tapestry, synergy, game-changer, cutting-edge, and embrace (metaphor), say
+   the concrete thing.
 3. Cut hedges, intensifiers, and template openers (see below).
 4. Break up any run of three same-length sentences.
 
 Constructions to avoid:
 
-- "It's not just X, it's Y" and "not only X but Y." Rewrite as a direct
-  statement, at most one per document.
+- "It's not just X, it's Y" and "not only X but Y." Rewrite as a direct statement,
+  at most one per document.
 - Hollow hedges and intensifiers: genuinely, truly, quite frankly, it's worth
   noting that, it's important to note, could potentially. Keep one hedge at most.
 - Vague endorsements ("worth reading"), chatbot artifacts ("Great question!", "I
@@ -147,15 +145,15 @@ the paragraph plainly: harness, navigate, foster, elevate, unleash, streamline,
 empower, bolster, resonate, revolutionize, facilitate, underpin, ecosystem,
 myriad, plethora.
 
-Rhythm: prefer plain copulas ("is," "has") over "serves as," "boasts,"
-"features." Do not synonym-cycle; repeat the clearest term. Vary sentence length;
-machine prose is metronomic.
+Rhythm: prefer plain copulas ("is," "has") over "serves as," "boasts," "features."
+Do not synonym-cycle; repeat the clearest term. Vary sentence length; machine prose
+is metronomic.
 
 ## Documentation structures
 
-Pick the shape from the reader's task, then write each section in the house
-voice. On a Dev Portal, hand components and layout to `portal-page-design`; this
-is about what each section says and in what order.
+Pick the shape from the reader's task, then write each section in the house voice.
+On a Dev Portal, hand components and layout to `portal-page-design`; this covers
+what each section says and in what order.
 
 Page types:
 
@@ -171,8 +169,8 @@ API or product page, a dependable order:
   primary next step. Front-load value.
 - Getting started: the shortest path to a first success. List every prerequisite
   up front, give copy-paste steps, and end with a step that proves it worked.
-- Authentication: early and self-contained. Show how to obtain and send
-  credentials with placeholders. Never show a real secret.
+- Authentication: early and self-contained. Show how to obtain and send credentials
+  with placeholders. Never show a real secret.
 - Request and response samples: one command per block, request and response in
   separate language-tagged blocks, no prompt markers, long commands wrapped.
 
@@ -188,28 +186,24 @@ curl https://api.example.com/v1/orders \
 - Troubleshooting or FAQ: headings phrased as the reader's actual question, with
   the cause and the fix in that order.
 
-When documenting Konnect resources, pull real control planes, services, routes,
-and spec details through the `kong-konnect` MCP server or the user's config;
-concrete examples beat invented ones, and keep secrets out.
+When documenting Konnect resources, pull real values from the `kong-konnect` MCP
+server or the user's config; concrete examples beat invented ones, and keep secrets
+out.
 
-Each section is self-contained and no longer than it needs to be: cut a sentence
-that repeats the previous one; add one if the reader would otherwise guess.
+Keep each section self-contained and no longer than it needs to be.
 
 ## Validation Checklist
 
-Before finishing, confirm:
-
 - who the reader is and the task the page serves
-- that the page leads with the task and stays on one page per use case
-- that prose is second person, active voice, present tense, and scannable
-- that samples use placeholders and a how-to ends in a verification step
-- that the text has no em-dashes, banned filler, or template openers
-- that real values came from MCP or the user, not invention
+- the page leads with the task and stays on one page per use case
+- prose is second person, active voice, present tense, and scannable
+- samples use placeholders and a how-to ends in a verification step
+- the text has no em-dashes, banned filler, or template openers
+- real values came from MCP or the user, not invention
 
 ## Handoffs
 
-- Use `portal-page-design` for the components and layout that present this
-  content.
-- Use `portal-branding` when the request is about appearance rather than wording.
-- Use `konnect-api-publish` or `konnect-api-catalog` when the real gap is that an
-  API is not published or modeled, not that its docs need writing.
+- `portal-page-design` for the components and layout that present this content.
+- `portal-branding` when the request is about appearance rather than wording.
+- `konnect-api-publish` or `konnect-api-catalog` when the real gap is that an API is
+  not published or modeled, not that its docs need writing.
